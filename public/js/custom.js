@@ -32,13 +32,6 @@ var luminateForms = (function($) {
             e.addClass('form-field-empty');
           }
         }
-        if (elemVal.includes('postal')) {
-          re = /^\d+$/;
-          if (!re.test((e.val()))) {
-            formNotEmpty = false;
-            e.addClass('form-field-empty');
-          }
-        }
       }
     });
 

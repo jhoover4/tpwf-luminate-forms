@@ -28,7 +28,7 @@ luminate_mailist_init();
 add_shortcode("luminate-mailist", "tpwf_luminate_form_mailist_handler");
 
 function full_code_snippet($form_id){
-  $html = '<form id="luminate-form-' . $form_id . '" class="luminate-forms" method="POST">
+  $html = '<form id="luminate-form-' . $form_id . '" class="luminate-forms" method="POST" action="https://secure2.convio.net/pwft/site/SSurvey">
     <p>
       <input type="hidden" name="cons_info_component" id="cons_info_component" value="t" />
       <input type="hidden" name="SURVEY_ID" id="SURVEY_ID" value="' . $form_id . '" />
@@ -71,6 +71,10 @@ function email_code_snippet($form_id){
   return $html;
 }
 
+$dataToJS = array(
+  'form_id' => array()
+);
+
 function tpwf_luminate_form_mailist_handler( $atts ) {
   $a = shortcode_atts( array(
       'form_id' => '1000',
@@ -78,11 +82,13 @@ function tpwf_luminate_form_mailist_handler( $atts ) {
   ), $atts );
 
   $form_id = $a['form_id'];
-  $dataToJS = array(
-    'form_id' => $form_id
-  );
 
-  // ajax to hijack form
+  // this needs to be global so shortcodes don't overwrite each other
+  global $dataToJS;
+
+  array_push($dataToJS['form_id'], $form_id);
+
+  // js to hijack form
   wp_enqueue_script( 'custom_js', plugin_dir_url( __FILE__ ) . 'public/js/custom.js', array( 'jquery' ), '', false);
   wp_localize_script( 'custom_js', 'php_vars', $dataToJS );
 

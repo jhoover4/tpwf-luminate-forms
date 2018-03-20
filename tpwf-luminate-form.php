@@ -2,8 +2,8 @@
 /*
  * Plugin Name:       TPWF Luminate Forms
  * Version:           1.0.0
- * Plugin URI:        http://example.com/plugin-name-uri/
- * Description:       Puts simple Luminate Online forms in luminate with AJAX capabilities
+ * Plugin URI:        https://github.com/jhoover4/tpwf-luminate-forms
+ * Description:       Puts simple Luminate Online forms in luminate
  * Author:            Jordan hoover
  * Author URI:        tpwf.org
  * Text Domain:       tpwf-luminate-forms

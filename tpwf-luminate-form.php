@@ -4,8 +4,8 @@
  * Version:           1.0.0
  * Plugin URI:        https://github.com/jhoover4/tpwf-luminate-forms
  * Description:       Puts simple Luminate Online forms in luminate
- * Author:            Jordan hoover
- * Author URI:        tpwf.org
+ * Author:            Jordan Hoover
+ * Author URI:        https://github.com/jhoover4
  * Text Domain:       tpwf-luminate-forms
  * Domain Path:       /languages
  */

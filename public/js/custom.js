@@ -26,7 +26,7 @@ var luminateForms = (function($) {
           }
         }
         if (elemVal.includes('zip')) {
-          re = /^\d+$/;
+          re = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
           if (!re.test((e.val()))) {
             formNotEmpty = false;
             e.addClass('form-field-empty');

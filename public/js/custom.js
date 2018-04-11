@@ -32,6 +32,8 @@ var luminateForms = (function($) {
 
           if (elemVal.includes(partialFieldName)) {
             return re.test((formVal));
+          } else {
+            return true;
           }
         }
       }

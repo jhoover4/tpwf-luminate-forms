@@ -44,8 +44,6 @@ var luminateForms = (function($) {
       console.log("Invalid form submission");
     }
 
-
-
     return formNotEmpty;
   }
 
@@ -73,20 +71,42 @@ luminateForms.currentForm.focus(function() {
 });
 
 (function($) {
-	function getURLParameter(name) {
-	  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
-	}
+  function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+  }
 
-	if ( $('.luminate-forms').length ) {
-		var source = getURLParameter('src');
-		var sub_source = getURLParameter('sub_src');
+  if ($('.luminate-forms').length) {
+    var source = getURLParameter('src');
+    var sub_source = getURLParameter('sub_src');
 
-		if (source) {
-			$('.luminate-forms #source').val(source);
-		}
+    if (source) {
+      $('.luminate-forms #source').val(source);
+    }
 
-		if (sub_source) {
-			$('.luminate-forms #sub-source').val(sub_source);
-		}
-	}
+    if (sub_source) {
+      $('.luminate-forms #sub-source').val(sub_source);
+    }
+  }
+
+  // Display a flash message upon submit
+    var flashSubmit = getURLParameter('submitted');
+    if (flashSubmit) {
+      flashMessage("Thank you for entering the We Will Not Be Tamed sweepstakes! Winners will be announced in November 2018");
+    }
+
+  function flashMessage(msgTxt) {
+    const body = $("body");
+
+    const message = $(`
+    <div class="survey-flash">
+    	<div tabindex="0">
+    		<ul>
+    			<li>${msgTxt}</li>
+    		</ul>
+    	</div>
+    </div>
+    `)
+
+    message.hide().prependTo(body).delay(1000).slideDown(500).delay(6000).slideUp(500);
+  }
 })(jQuery);

@@ -9,7 +9,7 @@ var luminateForms = (function($) {
     inputArr.each(function() {
       let e = $(this);
 
-      if (e.attr("id").includes("cons")) {
+      if (e.attr("id").indexOf("cons") !== -1) {
         let elemVal = e.attr("id").split("_");
         elemVal.shift();
         elemVal = elemVal.join(" ");
@@ -30,7 +30,7 @@ var luminateForms = (function($) {
             formVal = formVal.toLowerCase();
           }
 
-          if (elemVal.includes(partialFieldName)) {
+          if (elemVal.indexOf(partialFieldName) !== -1) {
             return re.test((formVal));
           } else {
             return true;
